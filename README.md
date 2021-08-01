@@ -1,12 +1,12 @@
-# Submission or project name
+# Recyminer
 
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Community](https://img.shields.io/badge/Join-Community-blue)](https://developer.ibm.com/callforcode/get-started/) [![Website](https://img.shields.io/badge/View-Website-blue)](https://sample-project.s3-web.us-east.cloud-object-storage.appdomain.cloud/)
 
-A basic GitHub repository example for new [Call for Code](https://developer.ibm.com/callforcode/) projects and those that join the Call for Code with The Linux Foundation deployment initiative. Not all sections or files are required. You can make this as simple or as in-depth as you need. And don't forget to [register for Call for Code 2021](https://developer.ibm.com/callforcode/get-started/)!
+Pollution by trash is a considerable global problem that affects oceans, the environment and quality life. One problem of the current recycling system is its inefficiency. The customer needs to separate each product and then look for where to send the products that the public trash system won’t collect.
 
-> If you're new to open source, please consider taking the [free "Introduction to Open Source" class](https://cognitiveclass.ai/courses/introduction-to-open-source).
+Not all places require trash to be separated; and this app could contribute to adding more people to help create a functional recycling system just by uploading a picture of their market receipt or a description of their non-functional, old goods.
 
-_Read this in other languages: [English](README.md), [한국어](./docs/README.ko.md), [português](./docs/README.pt_br.md)._
+Most people when not knowing what to do with their daily waste or their non-use products (a broken refrigerator, old clothes, old batteries, etc), they just throw them in the garbage (increasing pollution) or leave them in a corner of their houses. All of these non-use products could have a second life as final products or raw material and the application will help make the collection efficient globally.
 
 ## Contents
 
@@ -33,19 +33,43 @@ _Read this in other languages: [English](README.md), [한국어](./docs/README.k
 
 ### What's the problem?
 
-Part of the World Health Organization's guidance on limiting further spread of COVID-19 is to practice social distancing. As a result, schools in most affected areas are taking precautionary measures by closing their facilities. With school-aged children at home for an indeterminate amount of time, keeping them engaged, entertained, and on top of their education is important.
+Global electronic waste generation reached a record high of 53.6 million metric tons in 2019. This was an increase of 21 percent in just five years and worked out at approximately 7.3 kilograms of e-waste per capita. As waste generation has increased over the years, so too has the volume of materials recycled and composted. However, the recycling rate in the United States stands at just over 30 percent. Of the roughly 300 million metric tons of Municipal solid waste generated in the U.S., much is discarded at landfills.
+
+There are more than 1,200 municipal waste landfills in the U.S., with a large number of operating landfills located in California. The waste management company Waste Management Inc. accounts for more than a quarter of the total waste managed in U.S. landfills. As of 2020, there were more than 12,000 businesses in the U.S. waste collection services industry, employing more than 200,000 people.
 
 ### How can technology help?
 
-Schools and teachers can continue to engage with their students through virtual classrooms, and even create interactive spaces for classes. As parents face a new situation where they may need to homeschool their children, finding appropriate online resources is important as well.
+Global e-waste volumes grew by 21% between 2104 and 2019, according to the United Nations, a pace that will lead to a doubling of e-waste in just 16 years. The world discarded 53.6 million tons of e-waste in 2019. The United States generated 6.92 million tons of e-waste, about 46 pounds per person, in 2019. It recycled only 15% of the material. 
+
+Recycling circuit boards can be more valuable than mining for ore! One ton of circuit boards is estimated to contain 40 to 800 times more gold than one metric ton of ore. There is 30 to 40 times more copper in a ton of circuit boards that can be mined from one metric ton of ore.
 
 ### The idea
 
-It's imperative that learning and creating can continue when educational institutions have to shift the way they teach in times of crises, such as the COVID-19 pandemic. Providing a set of open source tools, backed by IBM Cloud and Watson Services, will enable educators to more easily make content available for their students.
+Welcome to Recyminer!, the economically sustainable application that attempts to create a functional recycling ecosystem where waste (plastic, paper, clothes, technology or waste by itself) can have a second use life as raw materials or to refurbished products.
+
+Users can register through the app as "miners", with that role they can recollect items that other users dispose. Users can submit a request with or without value for picking up an item, and miners can see on their maps the pool of available requests, what size and how much it pays. 
+
+For each user we generate a "ecoprofile" based on they scanned bills for groceries or other consumption goods. As they ingest the system with more "consumption data" users receive more tokens which can be later change for discount coupons on the Recyminer Store.
+
+With the "consumption data" we generate a datamap of how much recyclable garbage gets generated, allowing "miners" to have a tool for mining garbage for recyclable materials as: plastics, cardbox, cans, etc. 
+
+Miners can choose between two maps, direct orders for pickup from customers or garbage disposal amounts for mining. If they want they can get to the *Recyminer Store* and sell they *raw materials* for sellers to buy. Sellers have they access to the store and can see the *raw materials* section, in which they can buy and restore items to be resold.
+
+The *Recyminer Store* aims to be a marketplace in which users can buy refurbished items from sellers, for this they can use they points for discounts. Sellers after they bought the products from "miners" they guarantee that the item works. 
+
+#### App Profiles
+
+There are three profiles in the app:
+
+*User*: The user can request a miner to take off an unused product for any or no cost. The user can also upload his consumption recipes for app credit to buy products in the app.
+
+*Miner*: The miner can choose between picking up products or going to specific recollection waste points to collect recyclable goods. The miner can select if selling or not the product as raw material. If the miner wants to sell it as a final product, he must register as a seller.
+
+*Seller*: The seller buys raw material and sells, through the app, a refurbished final product. All the final products must be with a function guarantee.
+
 
 ## Demo video
-
-[![Watch the video](https://github.com/Call-for-Code/Liquid-Prep/blob/master/images/readme/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+(https://youtu.be/vOgCOoy_Bx0)
 
 ## The architecture
 
