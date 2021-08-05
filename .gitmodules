@@ -7,3 +7,6 @@
 [submodule "recyminer_app_user"]
 	path = recyminer_app_user
 	url = https://github.com/CandoCorp/recyminer_app_user.git
+[submodule "recyminer_app"]
+	path = recyminer_app
+	url = https://github.com/CandoCorp/recyminer_web.git
