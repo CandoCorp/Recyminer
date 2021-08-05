@@ -1,0 +1,12 @@
+[submodule "recyminer_app"]
+	path = recyminer_app
+	url = https://github.com/CandoCorp/recyminer_web.git
+[submodule "recyminer_store"]
+	path = recyminer_store
+	url = https://github.com/CandoCorp/recyminer_store.git
+[submodule "recyminer_app_driver"]
+	path = recyminer_app_driver
+	url = https://github.com/CandoCorp/recyminer_app_driver.git
+[submodule "recyminer_app_user"]
+	path = recyminer_app_user
+	url = https://github.com/CandoCorp/recyminer_app_user.git
