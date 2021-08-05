@@ -11,8 +11,6 @@ services:
     restart: unless-stopped
     tty: true
     environment:
-      - SERVICE_NAME: app
-      - SERVICE_TAGS: dev
       - APP_ENV=local
       - APP_DEBUG=true
       - DB_PORT=3306
