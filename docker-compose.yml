@@ -1,0 +1,108 @@
+version: '3.5'
+services:
+
+  #PHP Service
+  recyminer-app:
+    build:
+      context: ./recyminer_app
+      dockerfile: Dockerfile
+    image: us.icr.io/recyminer/recyminer-app:latest
+    container_name: recyminer-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      - SERVICE_NAME: app
+      - SERVICE_TAGS: dev
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_PORT=3306
+      - DB_HOST=mysql
+      - DB_DATABASE
+      - DB_USERNAME
+      - DB_PASSWORD
+    working_dir: /var/www/html
+    volumes:
+      - ./recyminer_app/.:/var/www/html/
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - recyminer-network
+
+  #Recyminer Store
+  recyminer-store:
+    build:
+      context: ./recyminer_store
+      dockerfile: Dockerfile
+    image: us.icr.io/recyminer/store-recyminer:latest
+    container_name: recyminer-app
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    environment:
+      - APP_KEY="base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_PORT=3306
+      - DB_HOST=mysql
+      - DB_DATABASE
+      - DB_USERNAME
+      - DB_PASSWORD
+    working_dir: /var/www/html
+    volumes:
+      - ./recyminer_store/.:/var/www/html/
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - recyminer-network
+
+  #Nginx Service
+  recyminer-webservice:
+    image: nginx:alpine
+    container_name: recyminer-webserver
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    networks:
+      - recyminer-network
+
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - recyminer-network
+
+  #MySQL Service
+  recyminer-db:
+    image: mysql:5.7
+    container_name: recyminer-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+      - dbdata2:/var/lib/mysql/
+    environment:
+      - MYSQL_DATABASE=
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - recyminer-network
+
+#Docker Networks
+networks:
+  recyminer-network:
+    driver: bridge
+#Volumes
+volumes:
+  dbdata2:
+    driver: local
