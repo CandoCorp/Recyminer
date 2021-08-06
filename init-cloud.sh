@@ -5,11 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-git submodule update --init --recursive
-git submodule foreach git pull
-git submodule update --remote --merge
-
-domains=(recyminer.com www.recyminer.com)
+domains=("recyminer.com" "www.recyminer.com")
 rsa_key_size=4096
 data_path="./data/certbot"
 email="info.recyminer@gmail.com" # Adding a valid address is strongly recommended
@@ -82,7 +78,3 @@ echo
 
 echo "### Reloading nginx ..."
 docker-compose exec nginx nginx -s reload
-
-echo "### Init Cluster"
-docker-compose up -d --build
-
