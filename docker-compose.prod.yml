@@ -1,0 +1,82 @@
+version: '3.5'
+services:
+
+  #PHP Service
+  recyminer-app:
+    build:
+      context: ./recyminer_web/.
+      dockerfile: Dockerfile
+    image: us.icr.io/recyminer/recyminer-app:latest
+    container_name: recyminer-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_PORT=3306
+      - DB_HOST=mysql
+      - DB_DATABASE=recyminer-app
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin`
+    working_dir: /var/www/html
+    volumes:
+      - ./recyminer_web/.:/var/www/html/
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - recyminer-network
+
+  #Recyminer Store
+  recyminer-store:
+    build:
+      context: ./recyminer_store/.
+      dockerfile: Dockerfile
+    image: us.icr.io/recyminer/store-recyminer:latest
+    container_name: recyminer-store
+    restart: unless-stopped
+    environment:
+      - APP_KEY="base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_PORT=3306
+      - DB_HOST=mysql
+      - DB_DATABASE=recyminer-app
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
+    working_dir: /var/www/html
+    volumes:
+      - ./recyminer_store/.:/var/www/html/
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - recyminer-network
+
+  #Nginx Service
+  nginx:
+    container_name: recyminer-webserver
+    networks:
+      - recyminer-network
+
+  #MySQL Service
+  recyminer-db:
+    image: mysql:5.7
+    container_name: recyminer-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+      - dbdata2:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - recyminer-network
+
+#Docker Networks
+networks:
+  recyminer-network:
+    driver: bridge
+#Volumes
+volumes:
+  dbdata2:
+    driver: local
