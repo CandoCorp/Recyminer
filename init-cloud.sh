@@ -6,6 +6,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 fi
 
 git submodule update --init --recursive
+git submodule foreach git pull
 git submodule update --remote --merge
 
 domains=(recyminer.com www.recyminer.com)
