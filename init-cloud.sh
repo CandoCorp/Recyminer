@@ -2,7 +2,7 @@
 
 domains=(recyminer.com www.recyminer.com www.admin.recyminer.com admin.recyminer.com store.recyminer.com www.store.recyminer.com admin.store.recyminer.com www.admin.store.recyminer.com api.recyminer.com www.api.recyminer.com api.store.recyminer.com www.api.store.recyminer.com)
 rsa_key_size=4096
-data_path="./certbot"
+data_path="./data/certbot"
 email="info.recyminer@gmail.com" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
 
