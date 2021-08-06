@@ -52,7 +52,7 @@ services:
       - recyminer-network
 
   #Nginx Service
-  recyminer-webservice:
+  nginx:
     image: nginx:alpine
     container_name: recyminer-webserver
     restart: unless-stopped
