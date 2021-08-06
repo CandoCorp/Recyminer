@@ -1,6 +1,6 @@
 #!/bin/bash
 
-domains=(recyminer.com www.recyminer.com admin.recyminer.com www.admin.recyminer.com store.recyminer.com store.recyminer.com admin.store.recyminer.com www.admin.store.recyminer.com api.recyminer.com www.api.recyminer.com)
+domains=(recyminer.com www.recyminer.com www.admin.recyminer.com admin.recyminer.com store.recyminer.com www.store.recyminer.com admin.store.recyminer.com www.admin.store.recyminer.com api.recyminer.com www.api.recyminer.com api.store.recyminer.com www.api.store.recyminer.com)
 rsa_key_size=4096
 data_path="./certbot"
 email="info.recyminer@gmail.com" # Adding a valid address is strongly recommended
