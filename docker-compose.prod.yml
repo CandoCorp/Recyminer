@@ -6,7 +6,7 @@ services:
     build:
       context: ./recyminer_web/.
       dockerfile: Dockerfile
-    image: us.icr.io/recyminer/recyminer-app:latest
+#    image: us.icr.io/recyminer/recyminer-app:latest
     container_name: recyminer-app
     restart: unless-stopped
     tty: true
@@ -30,7 +30,7 @@ services:
     build:
       context: ./recyminer_store/.
       dockerfile: Dockerfile
-    image: us.icr.io/recyminer/store-recyminer:latest
+#    image: us.icr.io/recyminer/store-recyminer:latest
     container_name: recyminer-store
     restart: unless-stopped
     environment:
