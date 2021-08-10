@@ -53,7 +53,16 @@ services:
 
   #Nginx Service
   nginx:
+    image: nginx:alpine
     container_name: recyminer-webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "81:80"
+      - "449:443"
+    volumes:
+      - ./:/var/www/html
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - recyminer-network
 
