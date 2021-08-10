@@ -13,7 +13,7 @@ services:
     environment:
       - APP_ENV=local
       - APP_DEBUG=true
-      - DB_PORT=3306
+      - DB_PORT=3308
       - DB_HOST=mysql
       - DB_DATABASE=recyminer-app
       - DB_USERNAME=admin
@@ -37,7 +37,7 @@ services:
       - APP_KEY="base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
       - APP_ENV=local
       - APP_DEBUG=true
-      - DB_PORT=3306
+      - DB_PORT=3308
       - DB_HOST=mysql
       - DB_DATABASE=recyminer-app
       - DB_USERNAME=admin
@@ -62,11 +62,11 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - "3308:3306"
     volumes:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
       - ./mysql/init:/docker-entrypoint-initdb.d
-      - dbdata2:/var/lib/mysql/
+      - recyminer-db:/var/lib/mysql/
     environment:
       - MYSQL_ROOT_PASSWORD=root
     networks:
