@@ -11,8 +11,9 @@ services:
     restart: unless-stopped
     tty: true
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
+      - APP_ENV=prod
+      - LOG_CHANNEL=stderr
+      - APP_DEBUG=false
       - DB_PORT=3308
       - DB_HOST=mysql
       - DB_DATABASE=recyminer-app
@@ -35,8 +36,9 @@ services:
     restart: unless-stopped
     environment:
       - APP_KEY="base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
-      - APP_ENV=local
-      - APP_DEBUG=true
+      - APP_ENV=prod
+      - APP_DEBUG=false
+      - LOG_CHANNEL=stderr
       - DB_PORT=3308
       - DB_HOST=mysql
       - DB_DATABASE=recyminer-app
