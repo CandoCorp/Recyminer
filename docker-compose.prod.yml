@@ -78,5 +78,5 @@ networks:
     driver: bridge
 #Volumes
 volumes:
-  dbdata2:
+  recyminer-db:
     driver: local
