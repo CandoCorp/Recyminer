@@ -142,8 +142,8 @@ In this section you add the instructions to run your project on your local machi
 
 You can find a running system to test at [recyminer.com](http://recyminer.com/).
 
-Download the user app [here]().\
-Download the miner app [here]()
+Download the user app [here](https://drive.google.com/file/d/1pKQNpDDw_BEHuVRuDoZGxqEoq1GA5sj7/view?usp=sharing).\
+Download the miner app [here](https://drive.google.com/file/d/1-eOJXDUKmBO_AbqwpfVtlD3G4MUxZjYL/view?usp=sharing)
 
 ## Built with
 
