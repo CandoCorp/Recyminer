@@ -21,13 +21,13 @@ SET time_zone = "+00:00";
 -- Database: `test`
 --
 -- --------------------------------------------------------
-CREATE DATABASE recyminer-app;
-GRANT ALL PRIVILEGES ON recyminer-app.* TO 'admin'@'%' IDENTIFIED BY 'mysql';
-GRANT ALL PRIVILEGES ON recyminer-app.* TO 'admin'@'localhost' IDENTIFIED BY 'mysql';
+CREATE DATABASE recyminer_app;
+GRANT ALL PRIVILEGES ON recyminer_app.* TO 'admin'@'%' IDENTIFIED BY 'mysql';
+GRANT ALL PRIVILEGES ON recyminer_app.* TO 'admin'@'localhost' IDENTIFIED BY 'mysql';
 
 -- --------------------------------------------------------
 
-USE recyminer-app;
+USE recyminer_app;
 
 -- --------------------------------------------------------
 
