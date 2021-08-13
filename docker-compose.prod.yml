@@ -11,14 +11,14 @@ services:
     restart: unless-stopped
     tty: true
     environment:
-      - APP_ENV: prod
-      - APP_DEBUG: false
-      - LOG_CHANNEL: stderr
-      - DB_PORT: 3307
-      - DB_HOST: mysql
-      - DB_DATABASE: recyminer-app
-      - DB_USERNAME: admin
-      - DB_PASSWORD: admin
+      - APP_ENV=prod
+      - APP_DEBUG=false
+      - LOG_CHANNEL=stderr
+      - DB_PORT=3307
+      - DB_HOST=mysql
+      - DB_DATABASE=recyminer-app
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
     working_dir: /var/www/html/recyminer-app
     volumes:
       - ./recyminer_web/.:/var/www/html/recyminer-app
@@ -35,15 +35,15 @@ services:
     container_name: recyminer-store
     restart: unless-stopped
     environment:
-      - APP_KEY: "base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
-      - APP_ENV: prod
-      - APP_DEBUG: false
-      - LOG_CHANNEL: stderr
-      - DB_PORT: 3307
-      - DB_HOST: mysql
-      - DB_DATABASE: recyminer-store
-      - DB_USERNAME: admin
-      - DB_PASSWORD: admin
+      - APP_KEY="base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
+      - APP_ENV=prod
+      - APP_DEBUG=false
+      - LOG_CHANNEL=stderr
+      - DB_PORT=3307
+      - DB_HOST=mysql
+      - DB_DATABASE=recyminer-store
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
     working_dir: /var/www/html/recyminer-store
     volumes:
       - ./recyminer_store/.:/var/www/html/recyminer-store/
@@ -79,9 +79,9 @@ services:
       - ./mysql/init:/docker-entrypoint-initdb.d
       - recyminer-db:/var/lib/mysql/
     environment:
-      - MYSQL_ROOT_PASSWORD: root
-      - MYSQL_USER: admin
-        MYSQL_ROOT_HOST: '%'  # needs to be enclosed with quotes
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=admin
+        MYSQL_ROOT_HOST='%'  # needs to be enclosed with quotes
     networks:
       - recyminer-network
 
