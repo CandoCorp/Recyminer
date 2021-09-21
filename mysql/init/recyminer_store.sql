@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "-05:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -50,12 +50,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
-LOCK TABLES `admins` WRITE;
-/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
 INSERT INTO `admins` VALUES (1,'kevin','0981893287',1,'def.png','defonix0@gmail.com','2021-07-20 05:58:28','$2y$10$almnGwubsELQvb5d929exOfC4NhRJjfv2UxyE8zyaMNmQoN6SVyMi','Thi9TPN07lnaL12fkAqFIn3k1N2LhBUrOr4biUYzcekVoh3XHvC5mHKR9JTb','2021-07-20 05:58:28','2021-07-20 05:58:28');
-/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 -- --------------------------------------------------------
 
 --

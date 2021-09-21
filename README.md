@@ -138,6 +138,8 @@ In this section you add the instructions to run your project on your local machi
 - [recyminer-miner-app](https://github.com/CandoCorp/recyminer_app_driver)
 - [recyminer-web](https://github.com/CandoCorp/recyminer_web)
 
+To start running the projects you can just use the run-cluster script
+
 ## Live demo
 
 You can find a running system to test at [recyminer.com](http://recyminer.com/).

@@ -1,25 +1,120 @@
-version: '3.5'
+version: '3'
 services:
+
+  #PHP Service
+  recyminer-app:
+    build:
+      context: ./recyminer_web/.
+      dockerfile: Dockerfile
+#    image: us.icr.io/recyminer/recyminer-app:latest
+    container_name: recyminer-web
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: recyminer-app
+      SERVICE_TAGS: dev
+      APP_KEY: "base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
+      APP_ENV: prod
+      APP_DEBUG: "false"
+      LOG_CHANNEL: stderr
+      DB_PORT: 3306
+      DB_HOST: recyminer-db
+      DB_DATABASE: recyminer_app
+      DB_USERNAME: admin
+      DB_PASSWORD: mysql
+    working_dir: /var/www/html/recyminer_web
+    volumes:
+      - ./recyminer_web/.:/var/www/html/recyminer_web
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - recyminer-network
+
+  #Recyminer Store
+  recyminer-store:
+    build:
+      context: ./recyminer_store/.
+      dockerfile: Dockerfile
+#    image: us.icr.io/recyminer/store-recyminer:latest
+    container_name: recyminer-store
+    restart: unless-stopped
+    environment:
+      SERVICE_NAME: recyminer-store
+      SERVICE_TAGS: dev
+      APP_KEY: "base64:kOTr+LW2oGYaLm77E20PSas/4Ns7+p53fKOtTng9foI="
+      APP_ENV: prod
+      APP_DEBUG: "false"
+      LOG_CHANNEL: stderr
+      DB_PORT: 3306
+      DB_HOST: recyminer-db
+      DB_DATABASE: recyminer_store
+      DB_USERNAME: admin
+      DB_PASSWORD: mysql
+    working_dir: /var/www/html/recyminer-store
+    volumes:
+      - ./recyminer_store/.:/var/www/html/recyminer-store/
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - recyminer-network
+
+  # Recyminer AI Service
+  recyminer-ai:
+    build:
+      context: ./recyminer_ai/.
+      dockerfile: Dockerfile
+      #    image: us.icr.io/recyminer/store-recyminer:latest
+    container_name: recyminer-ai
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      SERVICE_NAME: recyminer-ai
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html/recyminer-ai
+    networks:
+      - recyminer-network
   #Nginx Service
   nginx:
     image: nginx:alpine
+    container_name: recyminer-webserver
     restart: unless-stopped
-    volumes:
-      - ./data/nginx/conf.d/:/etc/nginx/conf.d/
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+    tty: true
     ports:
-      - "80:80"
-      - "443:443"
-    environment:
-       - LOG_CHANNEL=stderr
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-
-
-  certbot:
-    image: certbot/certbot
-    restart: unless-stopped
+      - "81:81"
+      - "82:82"
+      - "449:443"
     volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+      - ./recyminer_store/:/var/www/html/recyminer-store/
+      - ./recyminer_web/:/var/www/html/recyminer_web/
+      - ./data/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - recyminer-network
+
+  #MySQL Service
+  recyminer-db:
+    image: mysql:5.7
+    container_name: recyminer-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+      - dbdata:/var/lib/mysql/
+    environment:
+      SERVICE_NAME: mysql
+      SERVICE_TAGS: dev
+      MYSQL_ROOT_PASSWORD: local
+      MYSQL_USER: admin
+      MYSQL_ROOT_HOST: '%'  # needs to be enclosed with quotes
+    networks:
+      - recyminer-network
+
+#Docker Networks
+networks:
+  recyminer-network:
+    driver: bridge
+#Volumes
+volumes:
+  dbdata:
+    driver: local

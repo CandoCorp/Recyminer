@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "-05:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,8 +21,13 @@ SET time_zone = "+00:00";
 -- Database: `test`
 --
 -- --------------------------------------------------------
-CREATE DATABASE recyminer_app;
-GRANT ALL PRIVILEGES ON recyminer_app.* TO 'admin'@'%' IDENTIFIED BY 'mysql';
+CREATE DATABASE IF NOT EXISTS recyminer_app;
+
+-- # create root user and grant rights
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'local';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'local';
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 GRANT ALL PRIVILEGES ON recyminer_app.* TO 'admin'@'localhost' IDENTIFIED BY 'mysql';
 
 -- --------------------------------------------------------
@@ -49,12 +54,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
-LOCK TABLES `admins` WRITE;
-/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
 INSERT INTO `admins` VALUES (1,'kevin',NULL,'0981893287','defonix0@gmail.com',NULL,'$2y$10$almnGwubsELQvb5d929exOfC4NhRJjfv2UxyE8zyaMNmQoN6SVyMi','Thi9TPN07lnaL12fkAqFIn3k1N2LhBUrOr4biUYzcekVoh3XHvC5mHKR9JTb','2021-07-20 05:58:28','2021-07-20 05:58:28');
-/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 -- --------------------------------------------------------
 
 --
