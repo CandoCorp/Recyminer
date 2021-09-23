@@ -25,7 +25,7 @@ CREATE DATABASE IF NOT EXISTS recyminer_app;
 
 -- # create root user and grant rights
 CREATE USER 'root'@'localhost' IDENTIFIED BY 'local';
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'local';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'mysql';
 
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 GRANT ALL PRIVILEGES ON recyminer_app.* TO 'admin'@'localhost' IDENTIFIED BY 'mysql';

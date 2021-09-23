@@ -56,22 +56,6 @@ services:
     networks:
       - recyminer-network
 
-  # Recyminer AI Service
-  recyminer-ai:
-    build:
-      context: ./recyminer_ai/.
-      dockerfile: Dockerfile
-      #    image: us.icr.io/recyminer/store-recyminer:latest
-    container_name: recyminer-ai
-    restart: unless-stopped
-    ports:
-      - "5000:5000"
-    environment:
-      SERVICE_NAME: recyminer-ai
-      SERVICE_TAGS: dev
-    working_dir: /var/www/html/recyminer-ai
-    networks:
-      - recyminer-network
   #Nginx Service
   nginx:
     image: nginx:alpine

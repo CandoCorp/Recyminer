@@ -3,6 +3,7 @@ echo "### Checking for git submodules"
 
 APP="./recyminer_web";
 STORE="./recyminer_store";
+
 APP_VENDOR="./recyminer_web/vendor";
 STORE_VENDOR="./recyminer_store/vendor";
 

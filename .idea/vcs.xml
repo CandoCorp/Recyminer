@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/recyminer_ai" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/recyminer_app_driver" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/recyminer_app_user" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/recyminer_store" vcs="Git" />
