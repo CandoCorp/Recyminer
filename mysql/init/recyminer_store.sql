@@ -21,7 +21,8 @@ SET time_zone = "-05:00";
 -- Database: `test`
 --
 -- --------------------------------------------------------
-CREATE DATABASE recyminer_store;
+DROP DATABASE IF EXISTS recyminer_store;
+CREATE DATABASE IF NOT EXISTS recyminer_store;
 
 -- # create root user and grant rights
 CREATE USER 'root'@'%' IDENTIFIED BY 'local';
