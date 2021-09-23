@@ -25,8 +25,8 @@ DROP DATABASE IF EXISTS recyminer_store;
 CREATE DATABASE IF NOT EXISTS recyminer_store;
 
 -- # create root user and grant rights
-CREATE USER 'root'@'%' IDENTIFIED BY 'local';
-CREATE USER 'admin'@'%' IDENTIFIED BY 'mysql';
+# CREATE USER 'root'@'%' IDENTIFIED BY 'local';
+# CREATE USER 'admin'@'%' IDENTIFIED BY 'mysql';
 
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 GRANT ALL PRIVILEGES ON recyminer_store.* TO 'admin'@'%' IDENTIFIED BY 'mysql';
