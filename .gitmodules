@@ -10,6 +10,3 @@
 [submodule "recyminer_web"]
 	path = recyminer_web
 	url = https://github.com/CandoCorp/recyminer_web.git
-[submodule "recyminer_ai"]
-	path = recyminer_ai
-	url = https://github.com/CandoCorp/MAX-OCR.git
