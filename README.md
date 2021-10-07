@@ -174,7 +174,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 - Kevin Cando (Github: <a href="https://github.com/scando1993">scando1993</a>)
-- Kevin Santacruz (Github: <a href="https://github.com/Call-for-Code/Project-Sample/graphs/contributors">ksantacr</a>)
+- Kevin Santacruz (Github: <a href="https://github.com/Ksantacr">ksantacr</a>)
 
 ## License
 
