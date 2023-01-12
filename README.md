@@ -55,22 +55,23 @@ Most people when not knowing what to do with their daily waste or their non-use 
 
 ### The idea
 
-+ Welcome to **Recyminer**!, the economically sustainable application that attempts to create a functional recycling ecosystem where waste (plastic, paper, clothes, technology or waste by itself) can have a second use life as raw materials or to refurbished products.
++ Welcome to **Recyminer**!, the economically sustainable application that attempts to create a functional recycling ecosystem where waste (plastic, paper, clothes, technology or waste by itself) can have a second use life as raw materials or refurbished products.
 
 
-+ Users can register through the app as _"miners"_, with that role they can recollect items that other users dispose. Users can submit a request with or without value for picking up an item, and miners can see on their maps the pool of available requests, what size and how much it pays. 
++ Users can register through the app as "miners"; with that role, they can recollect items other users dispose of. Users can submit a request with or without value for picking up a thing, and miners can see on their maps the pool of available submissions, what size and how much it pays.
 
 
-+ For each user we generate a _"eco-profile"_ based on they scanned bills for groceries or other consumption goods. As they ingest the system with more _"consumption data"_ users receive more tokens which can be later change for discount coupons on the **Recyminer Store**.
++ We generate an _"eco-profile"_ for each user based on the scanned bills for groceries or other consumer goods. As they ingest the system with more _"consumption data,"_ users receive more tokens, which can later be changed for discount coupons on the **Recyminer Store**.
 
 
-+ With the _"consumption data"_ we generate a datamap of how much recyclable garbage gets generated, allowing _"miners"_ to have a tool for mining garbage for recyclable materials as: plastics, cardbox, cans, etc. 
++ With the _"consumption data,"_ we generate a data map of how much recyclable garbage gets generated, allowing _"miners"_ to have a tool for mining garbage for recyclable materials such as plastics, cardboard, cans, etc.
 
 
-+ Miners can choose between two maps, direct orders for pickup from customers or garbage disposal amounts for mining. If they want they can get to the ***Recyminer Store*** and sell they ***raw materials*** for sellers to buy. Sellers have they access to the store and can see the *raw materials* section, in which they can buy and restore items to be resold.
++ Miners can choose between two maps, direct orders for pickup from customers or garbage disposal amounts for mining. If they want, they can get to the **Recyminer Store** and sell the **raw materials** for sellers to buy. Sellers can access the store and see the raw materials section, where they can purchase and restore items to be resold.
 
 
-+ The ***Recyminer Store*** aims to be a marketplace in which users can buy refurbished items from sellers, for this they can use they points for discounts. Sellers after they bought the products from "miners" they guarantee that the item works. 
++ The ***Recyminer Store*** aims to be a marketplace where users can buy refurbished items from sellers; for this, they can use their points for discounts. After purchasing the products from _"miners,"_ Sellers guarantee that the thing works.
+
 
 ### App Profiles
 
